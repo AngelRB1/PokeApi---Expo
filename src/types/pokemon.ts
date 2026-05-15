@@ -1,3 +1,4 @@
+//Clase 1
 export interface PokemonListaItem{
     name: string;
     url: string;
@@ -45,6 +46,7 @@ export interface PokemonDetalle{
     sprites : PokemonSprites;
     types: TipoPokemon[];
     stats: PokemonStat[];
+    abilities: PokemonHabilidad[];
 }
 
 export interface PokemonCard{
@@ -52,4 +54,14 @@ export interface PokemonCard{
     name: string;
     imageUrl: string;
     types: string[];
+}
+
+//Clase 2
+export interface PokemonHabilidad{
+    ability:{
+        name: string;
+        url: string;
+    };
+    is_hidden: boolean;
+    slot: number;
 }

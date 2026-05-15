@@ -4,12 +4,17 @@ import PokemonCard from "../components/PokemonCard";
 import { usePokemonLista } from "../hooks/usePokemonLista";
 import type { PokemonCard as PokemonCardType } from "../types/pokemon";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../types/Navigation";
 
-export default function HomeScreen(){
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export default function HomeScreen({navigation}: Props){
     const {pokemon, cargando, error, refetch } = usePokemonLista(20);
 
+
     function handleCardPress(p: PokemonCardType){
-        console.log('Selected:' , p.name);
+        navigation.navigate('Detalle', {PokemonId: p.id});
     }
 
     if(cargando){
@@ -69,7 +74,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    backgroundColor: '#E3350D',
+    backgroundColor: '#dc0606',
     paddingHorizontal: 20,
     paddingTop: 16,
     paddingBottom: 20,
