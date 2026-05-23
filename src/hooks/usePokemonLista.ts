@@ -9,7 +9,7 @@ interface UsePokemonListaResultado {
     refetch: () => void;
 }
 
-export function usePokemonLista(limit = 20): UsePokemonListaResultado{
+export function usePokemonLista(limit = 100): UsePokemonListaResultado{
     const [pokemon, setPokemon] = useState<PokemonCard[]>([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState<string | null>(null);

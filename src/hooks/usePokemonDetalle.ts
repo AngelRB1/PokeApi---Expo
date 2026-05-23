@@ -30,6 +30,7 @@ export function usePokemonDetalle(idOrName: number | string | null): UsePokemonD
             setCargando(true);
             setError(null);
             try {
+                if (pokemonId === null) return;
                 const data = await fetchPokemonDetalle(pokemonId);
                 if (!cancelada) setPokemon(data);
             } catch (err) {
